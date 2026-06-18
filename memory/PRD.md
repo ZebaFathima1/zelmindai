@@ -1,67 +1,81 @@
 # Mindora AI — Product Requirements Document
 
 ## Original Problem Statement
-Build a world-class, futuristic AI-powered EdTech platform — "Mindora AI" — for school students (Grades 6-12) that does NOT give direct answers. Instead, it teaches via real-life examples, stories, visual explanations, interactive activities, and guided discovery. Philosophy: **"Don't Give Answers. Build Understanding."** Premium Silicon Valley startup look inspired by Apple, Linear, Stripe, Notion, Perplexity, OpenAI, Framer, Arc Browser.
+Build a world-class, futuristic AI-powered EdTech platform — "Mindora AI" — for school students (Grades 6-12) that does NOT give direct answers. Instead, it teaches via real-life examples, stories, visual explanations, interactive activities, and guided discovery. Philosophy: **"Don't Give Answers. Build Understanding."**
 
 ## User Choices
-- **Scope**: Full-stack with real AI teaching demo + landing showcase
-- **AI Models**: Claude Sonnet 4.5 (primary), GPT-5.2 and Gemini 3 Flash (selectable)
-- **Stack**: React (JSX) + Tailwind + shadcn + Framer Motion + canvas-based neural brain (no Three.js)
-- **Auth**: JWT-based email/password login & signup
-- **Brand**: Mindora AI
+- Full-stack with real AI teaching demo
+- AI Models: Claude Sonnet 4.5 (primary), GPT-5.2 and Gemini 3 Flash (selectable)
+- Stack: React (JSX) + Tailwind + shadcn + Framer Motion + canvas-based neural brain
+- JWT auth (login/signup)
+- Name: Mindora AI
+- Voice (Whisper STT + OpenAI TTS), AI visualizations (SVG + Nano Banana images), curriculum library (G6-12), parent dashboard with Resend digest emails
 
 ## Architecture
 - **Frontend**: React 19 + Tailwind + Framer Motion + Recharts + lucide-react + shadcn/ui
-- **Backend**: FastAPI + Motor (MongoDB async) + bcrypt + PyJWT + emergentintegrations LlmChat
-- **DB**: MongoDB collections — `users`, `chat_sessions`, `chat_messages`
-- **LLM**: Server-side streaming (SSE) via `/api/chat/teach` using Claude Sonnet 4.5 by default; per-session model override
-- **Auth**: Bearer-token + httpOnly cookie dual mode (cookies + localStorage fallback for cross-origin preview)
+- **Backend**: FastAPI + Motor + bcrypt + PyJWT + emergentintegrations LlmChat + Resend
+- **DB**: MongoDB — `users`, `chat_sessions`, `chat_messages`, `lesson_content`, `lesson_quiz`, `completed_lessons`, `digest_log`
+- **LLM**: Claude Sonnet 4.5 (Socratic teacher + lesson + quiz + visual decider), Gemini Nano Banana (educational illustrations), Whisper (STT), OpenAI tts-1 nova (TTS)
+- **Email**: Resend (sender: onboarding@resend.dev — change to verified domain in prod)
+- **Auth**: JWT (httpOnly cookie + Bearer fallback)
 
 ## User Personas
-1. **Student (Grades 6-12)** — Logs in, opens AI Companion, asks questions, learns through Socratic dialogue.
-2. **Parent / Teacher** (planned) — Monitors progress, gets weekly digests.
-3. **Admin** — Seeded automatically (`admin@mindora.ai`).
+1. **Student (Grades 6-12)** — Talks/types to AI Companion, browses curriculum, takes quizzes, earns XP.
+2. **Parent** — Receives weekly digest emails with student progress, lessons mastered, curiosity moments, dinner-table prompt.
+3. **Teacher** (planned) — Class analytics.
+4. **Admin** — Auto-seeded (`admin@mindora.ai`).
 
 ## Core Requirements (static)
-- AI must NEVER give direct answers — always uses hook → real-life example → guided discovery → tiny insight → next-step question
-- Hero, AI Demo, Why-Different, Learning Journey (7 steps), Features (8 cards), LMS Dashboard preview, Animated metrics, Testimonials, Final CTA
-- LMS Dashboard with XP, streak, level, 4 subjects, weekly chart, weekly goals, AI Companion CTA
-- AI Chat page with streaming, 3-model selector, conversation memory, persistent sessions
+- AI never gives direct answers; always uses Socratic teaching loop
+- Voice in (Whisper) and voice out (TTS) on every chat turn
+- AI picks the right visualization per concept (SVG diagram or Nano Banana illustration)
+- Full Grade 6-12 curriculum (108 lessons across Math/Science/English/Coding)
+- Quizzes per lesson with explanations (build understanding even on wrong answers)
+- Parent digest is opt-in (student adds parent email), shareable via signed link
 
 ## What's Been Implemented (Feb 2026)
-- ✅ JWT auth: register, login, logout, /me (+ admin auto-seed)
-- ✅ AI Teaching engine — Socratic system prompt; SSE streaming; Claude/GPT/Gemini switcher
-- ✅ Public landing demo endpoint (no auth) for the AI Demo section
-- ✅ LMS Dashboard API + UI with XP/streak/subjects/weekly chart/goals
-- ✅ Animated neural brain canvas (~60 nodes, proximity edges, mouse interaction)
-- ✅ Full landing page (9 sections) with parallax, scroll-reveals, magnetic CTAs, glass cards
-- ✅ Premium dark theme — Outfit/Manrope/Space Mono fonts; indigo/violet/cyan palette
-- ✅ Chat persistence (sessions + messages) with XP awards per turn
-- ✅ Testing: 14/14 backend + all frontend flows verified end-to-end
+
+### Iteration 1 (initial MVP)
+- JWT auth (register/login/logout/me + admin seed)
+- AI Teacher streaming via Claude Sonnet 4.5; model switcher (Claude/GPT/Gemini)
+- 9-section landing page with neural brain canvas + glass UI + scroll reveals
+- LMS Dashboard with XP/streak/level/subjects/weekly Recharts/goals
+- Chat persistence (sessions + messages) + XP awards
+- 14/14 backend tests + all frontend flows pass
+
+### Iteration 2 (this session)
+- **Voice mode**: `/api/voice/stt` (Whisper) + `/api/voice/tts` (nova). Mic button + auto-play in chat.
+- **AI visualizations**: `/api/visual/generate` — Claude decides SVG vs Gemini Nano Banana image; renders inline.
+- **Curriculum**: 108 lessons across grades 6-12 × 4 subjects. AI-generated lesson content + 4-MCQ quizzes (cached per slug).
+- **Quiz completion**: XP rewards + completed_lessons tracking.
+- **Parent dashboard**: `/parent` with live preview + email field + one-click digest send via Resend; beautiful HTML email; public `/api/parent/digest/{token}` viewer.
+- **15/15 new backend tests + all new frontend flows pass at 100%**
 
 ## Prioritized Backlog
-### P0 (next session)
-- [ ] Subject-specific lesson library (curriculum-mapped concepts)
+### P0
+- [ ] Curriculum-grade subject progress tracking in dashboard (use completed_lessons to populate real %s)
 - [ ] Email verification + password reset
 
 ### P1
-- [ ] Parent dashboard with weekly digest emails (Resend integration)
+- [ ] Stripe subscription billing (school plans)
 - [ ] Teacher analytics view (class roll-up)
-- [ ] Voice mode (OpenAI Whisper + TTS) — speak to Mindora
-- [ ] Image-based questions (snap a textbook problem)
-- [ ] Stripe subscription billing
+- [ ] Schedule weekly digest cron (currently manual via button)
+- [ ] Spaced-repetition concept review
 
 ### P2
 - [ ] Personalized learning roadmaps generated by AI
-- [ ] Spaced-repetition concept review
 - [ ] Multi-language support
 - [ ] Mobile-first PWA polish
+- [ ] Custom-domain Resend setup for prod deliverability
 
 ## Routes
-- `/` — Landing page
-- `/login`, `/signup` — Auth
-- `/dashboard` — Student LMS (protected)
-- `/chat` — AI Companion (protected, supports `?subject=Science`)
+- `/` — Landing
+- `/login`, `/signup` — Auth (signup now has optional parent_email)
+- `/dashboard` — Student LMS (protected) — 3 quick-nav tiles
+- `/chat` — AI Companion with voice + visual (protected)
+- `/library` — Browse curriculum by grade + subject (protected)
+- `/lesson/:slug` — Lesson + quiz (protected)
+- `/parent` — Parent digest preview + send (protected)
 
 ## Test Credentials
 See `/app/memory/test_credentials.md`.

@@ -622,9 +622,11 @@ async def curriculum_lesson(slug: str, user: CurrentUser):
             elif isinstance(ev, StreamDone):
                 break
         raw = _strip_code_fences(raw)
+        parsed_ok = True
         try:
             content = json.loads(raw)
         except Exception:
+            parsed_ok = False
             content = {
                 "intro": raw[:600],
                 "key_idea": lesson["concept"],
@@ -632,10 +634,11 @@ async def curriculum_lesson(slug: str, user: CurrentUser):
                 "tiny_experiment": "",
                 "check_questions": [],
             }
-        await db.lesson_content.insert_one({
-            "slug": slug, "content": content,
-            "created_at": datetime.now(timezone.utc).isoformat(),
-        })
+        if parsed_ok:
+            await db.lesson_content.insert_one({
+                "slug": slug, "content": content,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            })
         cached = {"content": content}
 
     completed = await db.completed_lessons.find_one({"user_id": user["id"], "lesson_slug": slug})
@@ -670,14 +673,17 @@ async def curriculum_quiz(slug: str, user: CurrentUser):
             elif isinstance(ev, StreamDone):
                 break
         raw = _strip_code_fences(raw)
+        parsed_ok = True
         try:
             quiz = json.loads(raw)
         except Exception:
+            parsed_ok = False
             quiz = {"questions": []}
-        await db.lesson_quiz.insert_one({
-            "slug": slug, "quiz": quiz,
-            "created_at": datetime.now(timezone.utc).isoformat(),
-        })
+        if parsed_ok and quiz.get("questions"):
+            await db.lesson_quiz.insert_one({
+                "slug": slug, "quiz": quiz,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+            })
         cached = {"quiz": quiz}
     return cached["quiz"]
 
