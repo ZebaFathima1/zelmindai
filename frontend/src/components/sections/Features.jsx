@@ -12,7 +12,7 @@ import {
 
 const FEATURES = [
   { Icon: GraduationCap, title: "Smart AI Teacher", desc: "Personalized explanations tuned to your student's current level and curiosity.", color: "#4F46E5" },
-  { Icon: Sparkles, title: "Adaptive Learning", desc: "Mindora senses confusion and reroutes the lesson in real time.", color: "#8B5CF6" },
+  { Icon: Sparkles, title: "Adaptive Learning", desc: "ZelMinds senses confusion and reroutes the lesson in real time.", color: "#8B5CF6" },
   { Icon: Beaker, title: "Interactive Experiments", desc: "Virtual lab moments where students predict, test and observe.", color: "#06B6D4" },
   { Icon: BookOpenText, title: "Story-Based Teaching", desc: "Every concept arrives wrapped in a story your brain wants to remember.", color: "#A78BFA" },
   { Icon: LineChart, title: "Progress Tracking", desc: "Watch understanding compound, not just minutes logged.", color: "#10B981" },

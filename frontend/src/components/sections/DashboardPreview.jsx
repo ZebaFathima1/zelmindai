@@ -20,7 +20,7 @@ export default function DashboardPreview() {
           className="max-w-3xl mb-16"
         >
           <div className="text-xs font-mono uppercase tracking-[0.2em] text-cyan-300/80 mb-4">
-            The Mindora LMS
+            The ZelMinds LMS
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05]">
             Your <span className="text-gradient-brand">learning command center</span>,

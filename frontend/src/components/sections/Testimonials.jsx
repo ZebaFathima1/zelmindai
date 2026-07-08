@@ -6,7 +6,7 @@ const TESTIMONIALS = [
     name: "Aanya R.",
     role: "Grade 9 · Mumbai",
     quote:
-      "My maths grades went up, but the bigger thing is I finally see WHY equations work. Mindora doesn't tell me — it makes me figure it out.",
+      "My maths grades went up, but the bigger thing is I finally see WHY equations work. ZelMinds doesn't tell me — it makes me figure it out.",
     color: "#4F46E5",
   },
   {
@@ -27,7 +27,7 @@ const TESTIMONIALS = [
     name: "Mr. Kowalski",
     role: "Science Teacher",
     quote:
-      "Mindora doesn't replace teachers — it gives every student a patient tutor between classes. Class participation jumped overnight.",
+      "ZelMinds doesn't replace teachers — it gives every student a patient tutor between classes. Class participation jumped overnight.",
     color: "#EC4899",
   },
 ];

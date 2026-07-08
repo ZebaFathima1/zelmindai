@@ -63,7 +63,7 @@ export default function AIChat() {
   const playTTS = async (text, idx) => {
     stopAudio();
     try {
-      const token = localStorage.getItem("mindora_token");
+      const token = localStorage.getItem("zelminds_token");
       const res = await fetch(`${API_BASE}/voice/tts`, {
         method: "POST",
         credentials: "include",
@@ -115,7 +115,7 @@ export default function AIChat() {
     setStreaming(true);
 
     try {
-      const token = localStorage.getItem("mindora_token");
+      const token = localStorage.getItem("zelminds_token");
       const res = await fetch(`${API_BASE}/chat/teach`, {
         method: "POST",
         credentials: "include",
@@ -195,7 +195,7 @@ export default function AIChat() {
       const form = new FormData();
       form.append("audio", blob, "input.webm");
       form.append("language", "en");
-      const token = localStorage.getItem("mindora_token");
+      const token = localStorage.getItem("zelminds_token");
       const res = await fetch(`${API_BASE}/voice/stt`, {
         method: "POST",
         credentials: "include",
@@ -219,7 +219,7 @@ export default function AIChat() {
             <div className="flex items-center gap-2">
               <Brain className="w-5 h-5 text-indigo-400" />
               <div>
-                <div className="text-sm">Mindora Companion</div>
+                <div className="text-sm">ZelMinds Companion</div>
                 <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-white/40">
                   {subjectHint || "free conversation"}
                 </div>
@@ -273,7 +273,7 @@ export default function AIChat() {
                 What are you <span className="text-gradient-brand">curious</span> about, {user?.name?.split(" ")[0] || "friend"}?
               </h1>
               <p className="mt-3 text-white/55 text-sm max-w-md mx-auto">
-                Ask anything — by text or voice. Mindora guides you through stories, examples, and visuals.
+                Ask anything — by text or voice. ZelMinds AI guides you through stories, examples, and visuals.
               </p>
 
               <div className="mt-10 grid sm:grid-cols-2 gap-3 max-w-xl mx-auto">
@@ -362,7 +362,7 @@ export default function AIChat() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask Mindora — or hit the mic to speak"
+              placeholder="Ask ZelMinds — or hit the mic to speak"
               data-testid="chat-input"
               disabled={streaming}
               className="flex-1 bg-transparent outline-none text-sm placeholder:text-white/40 py-2"

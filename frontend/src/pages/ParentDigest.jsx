@@ -122,7 +122,7 @@ export default function ParentDigest() {
               <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-violet-500/30 blur-3xl rounded-full" />
               <div className="relative">
                 <div className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-300/80 mb-3">
-                  Email preview · Mindora · Weekly digest
+                  Email preview · ZelMinds · Weekly digest
                 </div>
                 <h2 className="font-heading text-2xl text-white">{s.name}'s week of learning</h2>
                 <p className="text-white/55 text-sm mt-1">Built understanding — not just minutes logged.</p>

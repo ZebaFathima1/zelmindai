@@ -41,7 +41,7 @@ export default function Visual({ visual }) {
       {visual.type === "image" && (
         <img
           src={`data:${visual.mime_type || "image/png"};base64,${visual.data}`}
-          alt={visual.title || "Mindora illustration"}
+          alt={visual.title || "ZelMinds illustration"}
           className="w-full h-auto object-contain block bg-[#0e0e14]"
           data-testid="visual-image"
         />

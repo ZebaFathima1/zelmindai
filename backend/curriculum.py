@@ -1,5 +1,5 @@
 """
-Mindora AI — Grade 6-12 curriculum structure.
+ZelMinds AI — Grade 6-12 curriculum structure.
 Each lesson is just a stub. AI generates the actual learning content on demand.
 """
 

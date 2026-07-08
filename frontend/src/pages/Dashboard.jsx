@@ -43,7 +43,7 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Brain className="w-6 h-6 text-indigo-400" />
-            <span className="font-heading text-lg">Mindora <span className="text-indigo-400">AI</span></span>
+            <span className="font-heading text-lg">ZelMinds <span className="text-indigo-400">AI</span></span>
           </Link>
 
           <div className="flex items-center gap-3">
@@ -92,7 +92,7 @@ export default function Dashboard() {
             </div>
             <div className="flex-1">
               <div className="text-sm text-white">AI Companion</div>
-              <div className="text-xs text-white/40">Talk or type with Mindora</div>
+              <div className="text-xs text-white/40">Talk or type with ZelMinds</div>
             </div>
             <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-white/80 transition-colors" />
           </Link>
@@ -143,7 +143,7 @@ export default function Dashboard() {
                 <div>
                   <h2 className="font-heading text-xl">Active subjects</h2>
                   <div className="text-xs font-mono uppercase tracking-[0.18em] text-white/40 mt-1">
-                    Pick a subject to ask Mindora
+                    Pick a subject to ask ZelMinds
                   </div>
                 </div>
                 <span className="text-xs text-white/40 font-mono">{data.subjects.length} courses</span>
@@ -266,7 +266,7 @@ export default function Dashboard() {
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   <div className="text-xs font-mono uppercase tracking-[0.18em] text-indigo-300/80">
-                    Mindora · {data.mentor_status}
+                    ZelMinds · {data.mentor_status}
                   </div>
                 </div>
                 <h3 className="font-heading text-lg">Today's wonder</h3>
@@ -300,7 +300,7 @@ export default function Dashboard() {
                 />
               </div>
               <p className="mt-3 text-xs text-white/40">
-                Every conversation with Mindora earns you XP — and one tiny step toward mastery.
+                Every conversation with ZelMinds earns you XP — and one tiny step toward mastery.
               </p>
             </div>
           </div>

@@ -36,7 +36,7 @@ export default function Login() {
           <Link to="/" className="inline-flex items-center gap-2 mb-12">
             <Brain className="w-6 h-6 text-indigo-400" />
             <span className="font-heading text-lg">
-              Mindora <span className="text-indigo-400">AI</span>
+              ZelMinds <span className="text-indigo-400">AI</span>
             </span>
           </Link>
 
@@ -98,14 +98,14 @@ export default function Login() {
           </form>
 
           <div className="mt-8 text-sm text-white/55">
-            New to Mindora?{" "}
+            New to ZelMinds?{" "}
             <Link to="/signup" className="text-indigo-300 hover:text-indigo-200" data-testid="login-to-signup-link">
               Create your account
             </Link>
           </div>
 
           <div className="mt-10 text-xs text-white/30 font-mono">
-            Demo admin: <span className="text-white/50">admin@mindora.ai</span> / <span className="text-white/50">Admin@Mindora2026</span>
+            Demo admin: <span className="text-white/50">admin@zelminds.ai</span> / <span className="text-white/50">Admin@ZelMinds2026</span>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function Login() {
         <div className="relative h-full flex items-end p-12">
           <div className="max-w-md">
             <div className="text-xs font-mono uppercase tracking-[0.3em] text-indigo-300/80 mb-3">
-              Mindora AI
+              ZelMinds AI
             </div>
             <p className="font-heading text-2xl text-white/85 leading-snug">
               Every great mind started with a single question. Welcome back to yours.

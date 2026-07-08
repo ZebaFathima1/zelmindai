@@ -62,7 +62,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="mt-7 text-base md:text-lg text-white/60 max-w-xl leading-relaxed"
           >
-            Mindora AI never gives answers. It teaches concepts through real-life examples,
+            ZelMinds AI never gives answers. It teaches concepts through real-life examples,
             stories, experiments and guided discovery — building deep understanding that lasts.
           </motion.p>
 
@@ -124,7 +124,7 @@ export default function Hero() {
                 <div className="w-2.5 h-2.5 bg-yellow-400/60 rounded-full" />
                 <div className="w-2.5 h-2.5 bg-green-400/60 rounded-full" />
                 <span className="ml-3 text-xs font-mono text-white/40 uppercase tracking-[0.18em]">
-                  Mindora · Live Lesson
+                  ZelMinds · Live Lesson
                 </span>
               </div>
 
@@ -176,7 +176,7 @@ export default function Hero() {
                   className="rounded-2xl border border-white/[0.06] bg-gradient-to-br from-indigo-500/10 via-violet-500/5 to-transparent p-4"
                 >
                   <div className="text-xs font-mono uppercase tracking-[0.18em] text-indigo-300/80 mb-1.5">
-                    Mindora teaches
+                    ZelMinds teaches
                   </div>
                   <div className="text-sm text-white/85 leading-relaxed">
                     {idx === 0 && "Let's start with what you already know — when you drop a ball, what happens?"}

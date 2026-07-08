@@ -27,7 +27,7 @@ body {
 
 @layer base {
     :root {
-        /* Dark theme by default for Mindora */
+        /* Dark theme by default for ZelMinds */
         --background: 240 17% 5%;
         --foreground: 0 0% 98%;
         --card: 240 13% 9%;

@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import { X, Check } from "lucide-react";
 
 const ROWS = [
-  { trad: "Gives answers instantly", mindora: "Builds understanding step-by-step" },
-  { trad: "Encourages memorization", mindora: "Uses real-life examples and stories" },
-  { trad: "Creates homework dependency", mindora: "Encourages curiosity & questioning" },
-  { trad: "One-size-fits-all replies", mindora: "Adapts to each student's pace" },
-  { trad: "Forgotten in 24 hours", mindora: "Remembered for life" },
+  { trad: "Gives answers instantly", zelminds: "Builds understanding step-by-step" },
+  { trad: "Encourages memorization", zelminds: "Uses real-life examples and stories" },
+  { trad: "Creates homework dependency", zelminds: "Encourages curiosity & questioning" },
+  { trad: "One-size-fits-all replies", zelminds: "Adapts to each student's pace" },
+  { trad: "Forgotten in 24 hours", zelminds: "Remembered for life" },
 ];
 
 export default function WhyDifferent() {
@@ -61,7 +61,7 @@ export default function WhyDifferent() {
             </div>
           </motion.div>
 
-          {/* Mindora */}
+          {/* ZelMinds */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -73,7 +73,7 @@ export default function WhyDifferent() {
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-violet-500/25 blur-3xl rounded-full" />
             <div className="relative">
               <div className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-300/80 mb-4">
-                Mindora AI
+                ZelMinds AI
               </div>
               <h3 className="font-heading text-2xl text-white mb-6">Thinking engine</h3>
               <div className="space-y-3">
@@ -89,7 +89,7 @@ export default function WhyDifferent() {
                     <div className="w-6 h-6 rounded-md bg-green-500/10 flex items-center justify-center mt-0.5">
                       <Check className="w-3.5 h-3.5 text-green-300" />
                     </div>
-                    <span className="text-white text-sm">{r.mindora}</span>
+                    <span className="text-white text-sm">{r.zelminds}</span>
                   </motion.div>
                 ))}
               </div>

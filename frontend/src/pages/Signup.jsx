@@ -33,7 +33,7 @@ export default function Signup() {
           <Link to="/" className="inline-flex items-center gap-2 mb-10">
             <Brain className="w-6 h-6 text-indigo-400" />
             <span className="font-heading text-lg">
-              Mindora <span className="text-indigo-400">AI</span>
+              ZelMinds <span className="text-indigo-400">AI</span>
             </span>
           </Link>
 
@@ -125,7 +125,7 @@ export default function Signup() {
         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-[#0A0A0F]/30 to-[#0A0A0F]/70" />
         <div className="relative h-full flex items-end p-12">
           <div className="max-w-md">
-            <div className="text-xs font-mono uppercase tracking-[0.3em] text-violet-300/80 mb-3">Mindora AI</div>
+            <div className="text-xs font-mono uppercase tracking-[0.3em] text-violet-300/80 mb-3">ZelMinds AI</div>
             <p className="font-heading text-2xl text-white/85 leading-snug">
               "Imagine, observe, guess, then test." That's the loop we live in. Welcome.
             </p>

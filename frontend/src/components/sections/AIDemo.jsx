@@ -10,17 +10,17 @@ export default function AIDemo() {
   const [boring] = useState(
     "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods from carbon dioxide and water. It involves the green pigment chlorophyll and generates oxygen as a byproduct."
   );
-  const [mindora, setMindora] = useState("");
+  const [zelminds, setZelminds] = useState("");
   const [loading, setLoading] = useState(false);
 
   const ask = async () => {
     setLoading(true);
-    setMindora("");
+    setZelminds("");
     try {
       const { data } = await api.post("/demo/teach", { question });
-      setMindora(data.answer);
+      setZelminds(data.answer);
     } catch (e) {
-      setMindora("Hmm, the AI brain hit a hiccup. Try again in a moment.");
+      setZelminds("Hmm, the AI brain hit a hiccup. Try again in a moment.");
     } finally {
       setLoading(false);
     }
@@ -68,7 +68,7 @@ export default function AIDemo() {
             className="ml-auto px-5 py-2.5 rounded-full bg-white text-black font-medium text-sm hover:bg-white/90 transition-all hover:scale-[1.03] disabled:opacity-60 inline-flex items-center gap-2"
           >
             <Send className="w-3.5 h-3.5" />
-            {loading ? "Teaching…" : "Ask Mindora"}
+            {loading ? "Teaching…" : "Ask ZelMinds"}
           </button>
         </div>
 
@@ -114,7 +114,7 @@ export default function AIDemo() {
             </div>
           </motion.div>
 
-          {/* Mindora AI */}
+          {/* ZelMinds AI */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export default function AIDemo() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   <div className="text-xs font-mono uppercase tracking-[0.2em] text-indigo-300/90">
-                    Mindora AI · Live
+                    ZelMinds AI · Live
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-green-300/80">
@@ -160,32 +160,32 @@ export default function AIDemo() {
 
               <div className="rounded-xl bg-black/30 p-4 border border-white/[0.06]">
                 <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-cyan-300/80 mb-1.5">
-                  Mindora teaches
+                  ZelMinds teaches
                 </div>
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={mindora || "default"}
+                    key={zelminds || "default"}
                     initial={{ opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-sm text-white/90 leading-relaxed whitespace-pre-wrap min-h-[160px]"
                   >
-                    {loading && !mindora && (
+                    {loading && !zelminds && (
                       <div className="flex items-center gap-2 text-white/50">
                         <MessageSquare className="w-4 h-4 animate-pulse" />
-                        Mindora is composing a story for you…
+                        ZelMinds is composing a story for you…
                       </div>
                     )}
-                    {!loading && !mindora && (
+                    {!loading && !zelminds && (
                       <>
                         Imagine a plant cooking its own breakfast using sunlight as the stove,
                         water as the recipe, and air as the secret ingredient.
                         {"\n\n"}
                         Now — if you were a leaf, what would you do all day to make sure your kitchen never runs out of energy?
                         {"\n\n"}
-                        Press <span className="text-indigo-300">Ask Mindora</span> to start the real conversation.
+                        Press <span className="text-indigo-300">Ask ZelMinds</span> to start the real conversation.
                       </>
                     )}
-                    {mindora && mindora}
+                    {zelminds && zelminds}
                   </motion.div>
                 </AnimatePresence>
               </div>

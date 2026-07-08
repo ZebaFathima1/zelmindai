@@ -147,7 +147,7 @@ export default function Lesson() {
                   data-testid="lesson-discuss-btn"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-full glass text-white/90 hover:bg-white/[0.06] transition-colors text-sm"
                 >
-                  <MessageSquareText className="w-4 h-4" /> Discuss with Mindora
+                  <MessageSquareText className="w-4 h-4" /> Discuss with ZelMinds
                 </Link>
                 <button
                   onClick={startQuiz}

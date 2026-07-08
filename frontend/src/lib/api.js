@@ -10,7 +10,7 @@ export const api = axios.create({
 
 // Attach bearer token from localStorage as fallback (cross-site cookie quirks)
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("mindora_token");
+  const token = localStorage.getItem("zelminds_token");
   if (token && !config.headers.Authorization) {
     config.headers.Authorization = `Bearer ${token}`;
   }

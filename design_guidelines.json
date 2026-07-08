@@ -94,7 +94,7 @@
       },
       {
         "id": "ai_demo",
-        "instructions": "Bento box split. Left: Traditional AI (boring gray text). Right: Mindora AI (glowing bubbles, storytelling UI, rich media). Use Framer Motion for the chat bubbles appearing."
+        "instructions": "Bento box split. Left: Traditional AI (boring gray text). Right: ZelMinds AI (glowing bubbles, storytelling UI, rich media). Use Framer Motion for the chat bubbles appearing."
       },
       {
         "id": "why_different",

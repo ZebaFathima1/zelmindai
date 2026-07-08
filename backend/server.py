@@ -54,7 +54,7 @@ MODEL_MAP = {
 DEFAULT_MODEL = "claude"
 
 # ---------- App ----------
-app = FastAPI(title="Mindora AI API")
+app = FastAPI(title="ZelMinds AI API")
 api = APIRouter(prefix="/api")
 
 
@@ -159,7 +159,7 @@ class UpdateProfileIn(BaseModel):
 
 
 # ---------- AI System Prompts ----------
-TEACHER_SYSTEM = """You are Mindora AI — a personal teacher and mentor for school students (grades 6-12).
+TEACHER_SYSTEM = """You are ZelMinds AI — a personal teacher and mentor for school students (grades 6-12).
 
 CORE PHILOSOPHY: Don't Give Answers. Build Understanding.
 
@@ -204,7 +204,7 @@ Choose "none" if the concept is purely abstract/textual.
 Keep SVG simple — under 80 lines. No external assets, no scripts.
 """
 
-LESSON_SYSTEM = """You are Mindora AI building a discovery-style mini-lesson for a school student.
+LESSON_SYSTEM = """You are ZelMinds AI building a discovery-style mini-lesson for a school student.
 
 Given a lesson title, concept and real-life hook, produce ONE JSON object — nothing else:
 {
@@ -218,7 +218,7 @@ Given a lesson title, concept and real-life hook, produce ONE JSON object — no
 Tone: warm teacher. Grade-appropriate. No direct answer. Never reveal the full concept — keep room for the student to discover.
 """
 
-QUIZ_SYSTEM = """You are Mindora AI writing a tiny quiz for a school student.
+QUIZ_SYSTEM = """You are ZelMinds AI writing a tiny quiz for a school student.
 
 Given the lesson title and concept, produce ONE JSON object — nothing else:
 {
@@ -775,7 +775,7 @@ def _render_digest_html(student: dict, completed_lessons: List[dict], chat_summa
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#13131a;border:1px solid #232336;border-radius:24px;overflow:hidden;">
         <tr><td style="padding:32px 32px 16px;">
-          <div style="font-family:Helvetica;font-size:11px;letter-spacing:3px;color:#818cf8;text-transform:uppercase;margin-bottom:18px;">Mindora AI · Weekly Digest</div>
+          <div style="font-family:Helvetica;font-size:11px;letter-spacing:3px;color:#818cf8;text-transform:uppercase;margin-bottom:18px;">ZelMinds AI · Weekly Digest</div>
           <h1 style="margin:0 0 8px;font-size:28px;color:#fff;letter-spacing:-0.5px;">{name}'s week of learning</h1>
           <p style="margin:0;color:#a0a0b8;font-size:14px;">Built understanding — not just minutes logged.</p>
         </td></tr>
@@ -821,7 +821,7 @@ def _render_digest_html(student: dict, completed_lessons: List[dict], chat_summa
         </td></tr>
 
         <tr><td style="padding:0 32px 32px;text-align:center;">
-          <div style="font-size:11px;color:#666;font-family:monospace;letter-spacing:2px;text-transform:uppercase;">Mindora AI · Built for thinkers</div>
+          <div style="font-size:11px;color:#666;font-family:monospace;letter-spacing:2px;text-transform:uppercase;">ZelMinds AI · Built for thinkers</div>
         </td></tr>
       </table>
     </td></tr>
@@ -853,7 +853,7 @@ async def send_parent_digest(user: CurrentUser):
     full_user, completed, sessions = bundle
 
     html = _render_digest_html(full_user, completed, sessions)
-    subject = f"📚 {full_user.get('name','Your child')}'s Mindora week"
+    subject = f"📚 {full_user.get('name','Your child')}'s ZelMinds AI week"
     params = {
         "from": SENDER_EMAIL,
         "to": [parent_email],
@@ -947,7 +947,7 @@ async def public_demo(body: PublicDemoIn):
 
 @api.get("/")
 async def root():
-    return {"service": "Mindora AI", "ok": True, "version": "1.1"}
+    return {"service": "ZelMinds AI", "ok": True, "version": "1.1"}
 
 
 # ---------- Startup ----------
@@ -960,7 +960,7 @@ async def startup():
     await db.lesson_quiz.create_index("slug", unique=True)
     await db.completed_lessons.create_index([("user_id", 1), ("lesson_slug", 1)], unique=True)
 
-    admin_email = os.environ.get("ADMIN_EMAIL", "admin@mindora.ai").lower()
+    admin_email = os.environ.get("ADMIN_EMAIL", "admin@zelminds.ai").lower()
     admin_password = os.environ.get("ADMIN_PASSWORD", "admin123")
     existing = await db.users.find_one({"email": admin_email})
     if not existing:

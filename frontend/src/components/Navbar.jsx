@@ -18,7 +18,7 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Why Mindora", href: "#why" },
+    { label: "Why ZelMinds", href: "#why" },
     { label: "Demo", href: "#demo" },
     { label: "Features", href: "#features" },
     { label: "Dashboard", href: "#dashboard-preview" },
@@ -45,7 +45,7 @@ export default function Navbar() {
               <Brain className="relative w-7 h-7 text-indigo-400" strokeWidth={1.6} />
             </div>
             <span className="font-heading text-xl tracking-tight">
-              Mindora <span className="text-indigo-400">AI</span>
+              ZelMinds <span className="text-indigo-400">AI</span>
             </span>
           </Link>
 
