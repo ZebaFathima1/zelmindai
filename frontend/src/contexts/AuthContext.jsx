@@ -29,7 +29,8 @@ export function AuthProvider({ children }) {
       setUser(data);
       return { ok: true, user: data };
     } catch (e) {
-      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message };
+      console.error("Auth login failed", e.response?.status, e.response?.data, e.message);
+      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message || "Something went wrong. Please try again." };
     }
   };
 
@@ -40,7 +41,8 @@ export function AuthProvider({ children }) {
       setUser(data);
       return { ok: true, user: data };
     } catch (e) {
-      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message };
+      console.error("Auth register failed", e.response?.status, e.response?.data, e.message);
+      return { ok: false, error: formatApiError(e.response?.data?.detail) || e.message || "Something went wrong. Please try again." };
     }
   };
 
